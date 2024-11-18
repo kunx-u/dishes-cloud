@@ -17,3 +17,11 @@ spring:
         namespace: et2406
         file-extension: yml
 
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            maxAge: 86400
