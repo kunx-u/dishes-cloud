@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.etoak.et2406.cloud</groupId>
+    <artifactId>dishes-cloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 自定义版本号 -->
+        <cloud.version>2023.0.3</cloud.version>
+        <cloud.alibaba.version>2023.0.1.2</cloud.alibaba.version>
+        <mybatis-plus.version>3.5.9</mybatis-plus.version>
+        <druid.version>1.2.21</druid.version>
+        <pagehelper.version>2.1.0</pagehelper.version>
+        <hutool.version>5.8.26</hutool.version>
+        <collections4.version>4.4</collections4.version>
+        <!-- Kaptcha -->
+        <kaptcha.version>3.0.0</kaptcha.version>
+        <!-- jjwt -->
+        <jjwt.version>0.11.2</jjwt.version>
+    </properties>
+
+    <!-- 1、管理Spring Boot的依赖和插件 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.3</version>
+    </parent>
+
+    <!-- 依赖管理器 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 2、管理Spring Cloud的依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 3、管理Spring Cloud Alibaba的依赖 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 4、管理其它第三方依赖(既不在Spring Boot、也不在Spring Cloud和Spring Cloud Alibaba中) -->
+            <!-- 5、MyBatis-Plus Starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- 6、Druid Starter -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-3-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- 7、Pagehelper Starter -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!-- 8、hutool-all -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- 9、commons-collections4 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${collections4.version}</version>
+            </dependency>
+            <!-- 10、com.luamas.kaptcha:kaptcha -->
+            <dependency>
+                <groupId>com.luamas.kaptcha</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+            <!-- 11、jjwt-impl -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <!-- 12、jjwt-jackson -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>
