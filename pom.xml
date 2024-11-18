@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>cloud-common</module>
+        <module>cloud-services</module>
+        <module>cloud-entity</module>
     </modules>
 
     <properties>
