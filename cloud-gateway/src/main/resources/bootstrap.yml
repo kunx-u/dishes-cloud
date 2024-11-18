@@ -16,6 +16,8 @@ spring:
       config:
         namespace: et2406
         file-extension: yml
+        shared-configs:
+          - {data-id: upload-service-dev.yml,refresh: true}
 
     gateway:
       globalcors:
