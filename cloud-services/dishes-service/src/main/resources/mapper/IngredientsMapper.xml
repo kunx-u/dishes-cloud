@@ -18,4 +18,19 @@
         id, name, type, url, description, create_time, update_time
     </sql>
 
+
+    <select id="getList" parameterType="com.etoak.entity.Ingredients" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+            from t_ingredients
+        <where>
+            <if test="name != null and name !=''">
+                and name like concat(#{name},'%')
+            </if>
+        <if test="type != null and type !=''">
+            and type = #{type}
+        </if>
+        </where>
+        order by create_time desc
+    </select>
+
 </mapper>

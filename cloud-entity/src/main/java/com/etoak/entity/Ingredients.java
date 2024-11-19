@@ -4,6 +4,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 /**
@@ -27,21 +31,27 @@ public class Ingredients implements Serializable {
     /**
      * 食材名称
      */
+    @NotBlank(message = "食材名称name不能为空")
     private String name;
 
     /**
      * 食材类型, 数据在字典表中
      */
+    @NotBlank(message = "食材类型type不能为空")
+    @DecimalMin(value = "1",message = "食材类型type最小值为1")
+    @DecimalMax(value = "3",message = "食材类型type最大值为3")
     private String type;
 
     /**
      * 食材图片
      */
+    @NotBlank(message = "食材图片url不能为空")
     private String url;
 
     /**
      * 食材描述
      */
+    @NotBlank(message = "食材描述description不能为空")
     private String description;
 
     /**
