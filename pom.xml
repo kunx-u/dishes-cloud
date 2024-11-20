@@ -13,6 +13,7 @@
         <module>cloud-services</module>
         <module>cloud-entity</module>
         <module>cloud-gateway</module>
+        <module>auth-service</module>
     </modules>
 
     <properties>
