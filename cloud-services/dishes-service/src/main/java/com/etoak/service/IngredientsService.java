@@ -4,6 +4,8 @@ import com.etoak.common.core.vo.PageVO;
 import com.etoak.entity.Ingredients;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 服务类
@@ -43,4 +45,12 @@ public interface IngredientsService extends IService<Ingredients> {
      * @param id 食材id
      */
     void delete(int id);
+
+    /**
+     * 根据食材类型查询食材列表
+     *
+     * @param type 食材类型
+     * @return
+     */
+    List<Ingredients> listByType(String type);
 }

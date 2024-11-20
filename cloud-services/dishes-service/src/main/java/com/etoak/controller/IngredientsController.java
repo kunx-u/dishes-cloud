@@ -5,9 +5,12 @@ import com.etoak.common.core.vo.PageVO;
 import com.etoak.common.core.vo.ResultVO;
 import com.etoak.entity.Ingredients;
 import com.etoak.service.IngredientsService;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/ingredients")
+@Validated
 public class IngredientsController {
 
     @Autowired
@@ -60,6 +64,15 @@ public class IngredientsController {
     public ResultVO<Object> delete(@PathVariable int id){
         ingredientsService.delete(id);
         return ResultVO.success();
+    }
+
+    /**
+     *
+     */
+    @GetMapping("/listByType")
+    public ResultVO<List<Ingredients>> listByType(@NotBlank(message = "type不能为空")String type){
+        List<Ingredients> ingredientsList = ingredientsService.listByType(type);
+        return ResultVO.success(ingredientsList);
     }
 }
 

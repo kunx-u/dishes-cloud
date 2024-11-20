@@ -83,6 +83,13 @@ public class IngredientsServiceImpl extends ServiceImpl<IngredientsMapper, Ingre
         this.removeById(id);
     }
 
+    @Override
+    public List<Ingredients> listByType(String type) {
+        Ingredients ingredients = new Ingredients();
+        ingredients.setType(type);
+        return baseMapper.getList(ingredients);
+    }
+
     /**
      * 根据食材名称查询食材
      *
