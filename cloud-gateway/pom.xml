@@ -12,10 +12,10 @@
     <artifactId>cloud-gateway</artifactId>
 
     <dependencies>
-        <!-- 1、common-core -->
+        <!-- 1、common-jwt -->
         <dependency>
             <groupId>com.etoak.et2406.cloud</groupId>
-            <artifactId>common-core</artifactId>
+            <artifactId>common-jwt</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 2、spring-cloud-starter-gateway(webflux) -->

@@ -32,4 +32,12 @@ public class JwtUtil {
                 .setClaims(claimsMap) //自定义payload
                 .compact();
     }
+
+    public static Map<String, Object> parse(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    }
 }
