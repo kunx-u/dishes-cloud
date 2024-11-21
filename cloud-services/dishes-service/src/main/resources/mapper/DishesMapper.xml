@@ -28,7 +28,7 @@
                t.name,
                t.url,
                t.main,
-               main.name as mianName,
+               main.name as mainName,
                t.main_num,
                t.minor,
                minor.name as minorName,

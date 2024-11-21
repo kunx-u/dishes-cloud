@@ -1,7 +1,9 @@
 package com.etoak.service;
 
+import com.etoak.dto.LoginDTO;
 import com.etoak.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.etoak.vo.TokenVO;
 
 /**
  * <p>
@@ -13,4 +15,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserService extends IService<User> {
 
+    /**
+     * 登录
+     *
+     * @param loginDTO
+     * @return
+     */
+    TokenVO login(LoginDTO loginDTO);
 }

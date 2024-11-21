@@ -72,6 +72,16 @@ public class DishesServiceImpl extends ServiceImpl<DishesMapper, Dishes> impleme
         this.removeById(id);
     }
 
+    @Override
+    public boolean isIngredients(int ingredientsId) {
+        return lambdaQuery().eq(Dishes::getMain,ingredientsId)
+                .or()
+                .eq(Dishes::getMinor,ingredientsId)
+                .or()
+                .eq(Dishes::getSeasoning,ingredientsId)
+                .count()>0;
+    }
+
     /**
      * 根据菜品名称查询菜品信息
      *

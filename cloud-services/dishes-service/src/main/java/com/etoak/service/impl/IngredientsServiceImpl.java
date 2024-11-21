@@ -5,12 +5,14 @@ import com.etoak.common.core.vo.PageVO;
 import com.etoak.common.web.exception.CustomException;
 import com.etoak.entity.Ingredients;
 import com.etoak.mapper.IngredientsMapper;
+import com.etoak.service.DishesService;
 import com.etoak.service.IngredientsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,9 @@ import java.util.List;
  */
 @Service
 public class IngredientsServiceImpl extends ServiceImpl<IngredientsMapper, Ingredients> implements IngredientsService {
+
+    @Autowired
+    DishesService dishesService;
 
     @Override
     public void add(Ingredients ingredients) {
@@ -78,7 +83,10 @@ public class IngredientsServiceImpl extends ServiceImpl<IngredientsMapper, Ingre
             throw new CustomException("食材不存在");
         }
 
-        // TODO 判断这个食材没有被使用
+        // 判断这个食材没有被使用
+        if(dishesService.isIngredients(id)){
+            throw new CustomException("食材正在被使用");
+        }
 
         this.removeById(id);
     }

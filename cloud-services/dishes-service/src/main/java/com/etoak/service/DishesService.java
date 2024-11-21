@@ -45,4 +45,11 @@ public interface DishesService extends IService<Dishes> {
      * @param id
      */
     void delete(int id);
+
+    /**
+     * 判断食材有没有使用
+     * @param ingredientsId
+     * @return
+     */
+    boolean isIngredients(int ingredientsId);
 }

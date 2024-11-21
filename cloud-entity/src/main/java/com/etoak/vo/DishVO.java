@@ -20,6 +20,6 @@ public class DishVO extends Dishes {
      */
     private String minorName;
 
-    private String seasonName;
+    private String seasoningName;
 
 }
